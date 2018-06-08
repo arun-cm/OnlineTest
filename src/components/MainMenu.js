@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { hot } from 'react-hot-loader'
+import CountDownTimer from './CountDownTimer'
 
 class MainMenu extends Component {
     constructor() {
@@ -26,12 +27,10 @@ class MainMenu extends Component {
         e.preventDefault();
         this.props.onSignin();
     }
-
     onQuestion(e) {
         e.preventDefault();
         this.props.onQuestion();
     }
-
     onHome(e) {
         e.preventDefault();
         this.props.onHome();
@@ -40,19 +39,43 @@ class MainMenu extends Component {
     render() {
         return (
             <React.Fragment>
+
+                
+
                 <div className="ui small menu custom-menu">
 
-                    <div class="header item">Mangathol!</div>
+                    <div className="header item pointer" onClick={this.onHome}>
+                        Mangathol!
+                            <i aria-hidden="true" className="circle notched loading icon"></i>
+                    </div>
 
-                    <a className="item" onClick={this.onHome}>
-                        Home</a>
-                    <a className="item" onClick={this.onQuestion}>
-                        Questions</a>
-                    <div className="right menu">
+                    {/* <a className="item" onClick={this.onHome}>
+                        Home</a> */}
+                    {/* <a className="item" onClick={this.onQuestion}>
+                        Questions</a>*/}
 
-                        <div className={this.props.signInVisible == true ? 'hide' : ''}>
+                    <div className="right menu"> 
+
+                        {/* <a className="item">
+                            <i aria-hidden="true" className="circle notched loading icon"></i>
+
+                        </a> */}
+
+                        {/* <div className={this.props.signInVisible == true ? 'hide' : 'item'}>
                             <b> {'Welcome ' + this.props.Candidate} </b>
-                        </div>
+                        </div> */}
+
+                        <CountDownTimer dir="down"></CountDownTimer>
+                        
+
+
+                        <h2 className={this.props.signInVisible == true ? 'hide' : 'ui header'} >
+                            <img src="https://react.semantic-ui.com/assets/images/avatar/large/patrick.png"
+                                className="ui circular image" /> { this.props.Candidate } &nbsp;
+                        </h2>
+
+
+
 
                         <div className={`item ${this.props.signInVisible == true ? '' : 'hide'}`} >
                             <div id="btnSignIn" className="custom-button" onClick={this.onSignIn} >Sign In</div>

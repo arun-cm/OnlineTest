@@ -13,13 +13,9 @@ class SignIn extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.closeSignIn = this.closeSignIn.bind(this);
         this.openSignIn = this.openSignIn.bind(this);
-
     }
 
     componentWillReceiveProps(newProp) {
-        console.log('from sign in page newProp : ' ,newProp.showSignIn)
-        console.log('from sign in page showSignIn : ' ,this.state.showSignIn)
-
         if (newProp.showSignIn !== this.state.showSignIn) {
             this.setState({ showSignIn: newProp.showSignIn });
         }
@@ -63,7 +59,6 @@ class SignIn extends Component {
         .then(result => result.json())
         .then((res)=>{
             if(res.meta.status == "success"){
-                console.log(res);
                 this.props.setUser(res);
             }
         })
@@ -76,7 +71,6 @@ class SignIn extends Component {
     render() {
         return (
             <React.Fragment>
-
                 <Container text>
                     <Modal open={this.state.showSignIn} onClose={this.closeSignIn} onOpen={this.openSignIn}>
                         <Modal.Header>Sign In</Modal.Header>
@@ -99,7 +93,6 @@ class SignIn extends Component {
                         </Modal.Content>
                     </Modal>
                 </Container>
-
             </React.Fragment>
         );
     }

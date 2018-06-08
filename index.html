@@ -23,10 +23,14 @@
             display: none !important;
         }
 
+        .pointer {
+            cursor: pointer !important;
+        }
+
         .custom-menu {
             margin-top: 1% !important;
             border-radius: 0% !important;
-            height: 60px !important;
+            height: 70px !important;
             width: 98% !important;
             margin-left: 1% !important;
             box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 10px !important;
@@ -136,6 +140,11 @@
             background: white;
         }
     </style>
+
+    <link rel="stylesheet" href="./src/css/flipclock.css" />
+    <link rel="stylesheet" href="./src/css/timer.css" />
+
+
 </head>
 
 <body>
@@ -143,8 +152,8 @@
     <script src="/main.js"></script>
     <script>
         window.onbeforeunload = function () {
-            return 'Are you sure you want to leave?';
-        };  
+            //return 'Are you sure you want to leave?';
+        };
     </script>
 </body>
 

@@ -63,7 +63,8 @@ class App extends React.Component {
     onQuestion(e) {
         this.setState({ isSignInVisible: false });
         this.setState({ isRegisterVisible: false });
-        this.setState({ isQuestionVisible: true });
+        //this.setState({ isQuestionVisible: true });
+        this.setState({ isQuestionVisible: this.state.isUserAuthenticated });
         this.setState({ isHomeVisible: false });
 
     }
